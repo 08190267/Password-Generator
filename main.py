@@ -1,13 +1,14 @@
 import random
 import string
 
-letters = string.ascii_letters
-digits = string.digits
-symbols = string.punctuation
-
-all_chars = letters + digits + symbols
-
+print('=== Password Generator ===')
 length = int(input('Enter password length: '))
-password = ''.join(random.choice(all_chars) for _ in range(length))
+use_symbols = input('Include symbols? (y/n): ').lower()
 
-print('Generated Password:', password)
+chars = string.ascii_letters + string.digits
+if use_symbols == 'y':
+    chars += string.punctuation
+
+password = ''.join(random.choice(chars) for _ in range(length))
+
+print('\nGenerated Password:', password)
